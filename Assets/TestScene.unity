@@ -122,6 +122,8 @@ GameObject:
   - component: {fileID: 797093636}
   - component: {fileID: 797093641}
   - component: {fileID: 797093642}
+  - component: {fileID: 797093643}
+  - component: {fileID: 797093644}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -168,7 +170,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 81.14359
+  field of view: 81.143585
   orthographic: 0
   orthographic size: 8.5625
   m_Depth: -1
@@ -193,11 +195,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 797093635}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.026, y: 0.235, z: -3.1999998}
-  m_LocalScale: {x: 0.32, y: 0.32, z: 0.32}
+  m_LocalPosition: {x: 0.081250004, y: 0.75, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1027041196}
-  m_RootOrder: 0
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &797093641
 MonoBehaviour:
@@ -210,15 +212,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e9c55f9e2e4bf845a8f21eda023f561, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fitType: 1
-  targetPixelHeight: 120
+  fitType: 0
+  targetPixelHeight: 109
   parallaxLayerCount: 10
   cameraZoom: 5
   pixelatedPostProcessing: 1
-  heightError: 52
+  heightError: 3
   showGizmos: 1
   subpixelOffset: {x: 0, y: 0}
-  pixelZoomMode: 1
+  pixelZoomMode: 0
 --- !u!114 &797093642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -231,6 +233,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1027041193}
+--- !u!114 &797093643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 797093635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd5ee133c9d0710429490844fd99367a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 1027041196}
+  damping: 0.5
+  lookAheadFactor: 10
+  lookAheadReturnSpeed: 10
+  lookAheadMoveThreshold: 10
+--- !u!114 &797093644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 797093635}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 127b2728d8ea1724ab4ac440a46b3942, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseWidth: 400
+  baseHeight: 240
+  behaviour: 0
+  quad: {fileID: 0}
 --- !u!1 &1027041193
 GameObject:
   m_ObjectHideFlags: 0
@@ -243,6 +276,7 @@ GameObject:
   - component: {fileID: 1027041194}
   - component: {fileID: 1027041197}
   - component: {fileID: 1027041198}
+  - component: {fileID: 1027041199}
   m_Layer: 0
   m_Name: Char
   m_TagString: Untagged
@@ -266,7 +300,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.2, y: 0.28}
+    oldSize: {x: 0.2, y: 0.27}
     newSize: {x: 0.2, y: 0.27}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -322,10 +356,9 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1027041193}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.015625, z: 0}
   m_LocalScale: {x: 3.125, y: 3.125, z: 3.125}
-  m_Children:
-  - {fileID: 797093640}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -340,8 +373,8 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.054
-  m_LinearDrag: 0
+  m_Mass: 0.05
+  m_LinearDrag: 0.5
   m_AngularDrag: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
@@ -367,6 +400,33 @@ MonoBehaviour:
   runContinously: 1
   useParentTransform: 0
   displayGrid: 0
+--- !u!114 &1027041199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1027041193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0529b10a68ebe73449fa7aea578cf5f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0.5
+  speedmultiplier: 1
+  facing: 0
+  increment: 0
+  timer: 0
+  spin: 0000000001000000020000000300000004000000050000000600000007000000
+  south: 01000000000000000200000000000000
+  southwest: 04000000030000000500000003000000
+  west: 07000000060000000800000006000000
+  northwest: 0a000000090000000b00000009000000
+  north: 0d0000000c0000000e0000000c000000
+  northeast: 100000000f000000110000000f000000
+  east: 13000000120000001400000012000000
+  southeast: 16000000150000001700000015000000
+  direction: 000000000000000000000000
+  Interact: 0
 --- !u!1 &1037251073
 GameObject:
   m_ObjectHideFlags: 0
@@ -397,7 +457,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -1.8264184}
+  m_Offset: {x: 0, y: -1.8377335}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0.07}
     pivot: {x: 0.5, y: 0.5}
@@ -408,7 +468,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 7, y: 0.30716324}
+  m_Size: {x: 7, y: 0.28453302}
   m_EdgeRadius: 0
 --- !u!212 &1037251075
 SpriteRenderer:
