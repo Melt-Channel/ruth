@@ -1,0 +1,32 @@
+Initialize engine version: 5.6.0f3 (497a0f351392)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce GTX 870M (ID=0x1199)
+    Vendor:   NVIDIA
+    VRAM:     2977 MB
+    Driver:   21.21.13.7866
+Begin MonoManager ReloadAssembly
+Platform assembly: F:\Album 4\Game\New Unity Project\Demo_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading F:\Album 4\Game\New Unity Project\Demo_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: F:\Album 4\Game\New Unity Project\Demo_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading F:\Album 4\Game\New Unity Project\Demo_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: F:\Album 4\Game\New Unity Project\Demo_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading F:\Album 4\Game\New Unity Project\Demo_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: F:\Album 4\Game\New Unity Project\Demo_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading F:\Album 4\Game\New Unity Project\Demo_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+- Completed reload, in  0.142 seconds
+Platform assembly: F:\Album 4\Game\New Unity Project\Demo_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: F:\Album 4\Game\New Unity Project\Demo_Data\Managed\System.dll (this message is harmless)
+desktop: 1920x1080 60Hz; virtual: 5120x1080 at -1600,0
+<RI> Initializing input.
+<RI> Input initialized.
+desktop: 1600x900 60Hz; virtual: 5120x1080 at -1600,0
+desktop: 1920x1080 60Hz; virtual: 5120x1080 at -1600,0
+<RI> Initialized touch support.
+UnloadTime: 1.172195 ms
+Setting up 4 worker threads for Enlighten.
+  Thread -> id: 2694 -> priority: 1 
+  Thread -> id: 269c -> priority: 1 
+  Thread -> id: 1da8 -> priority: 1 
+  Thread -> id: 2f48 -> priority: 1 
