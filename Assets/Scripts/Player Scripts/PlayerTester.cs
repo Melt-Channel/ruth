@@ -18,10 +18,14 @@ public class PlayerTester : MonoBehaviour
 
 	public GameObject light_ball;
 	public GameObject obj;
+	public bool looking_up;
+
+	public int facing; // 0 is right 1 is left
 
     void Start()
     {
 		offhandhold = false;
+		facing = 0;
     }
 		
     void Update()
@@ -34,6 +38,21 @@ public class PlayerTester : MonoBehaviour
         {
             speedmultiplier = 1;
         }
+
+		if (Input.GetKey (KeyCode.W)) {
+			looking_up = true;
+		} else
+			looking_up = false;
+
+		if (Input.GetKeyDown(KeyCode.A)) {
+			facing = 1;
+			if (obj != null)
+				CreateOffHand ();
+		} else if (Input.GetKeyDown(KeyCode.D)) {
+			facing = 0;
+			if (obj != null)
+				CreateOffHand ();
+		}
 
         /*timer -= Time.deltaTime;
         if (Input.GetKey(KeyCode.Z))
@@ -50,9 +69,7 @@ public class PlayerTester : MonoBehaviour
 
 		if (Input.GetKeyDown (KeyCode.C)) {
 
-			obj = Instantiate (light_ball, new Vector2 (gameObject.transform.position.x, gameObject.transform.position.y), Quaternion.identity) as GameObject;
-			obj.GetComponent<InstantTransmissionFilm> ().player = gameObject;
-			offhandhold = true;
+			CreateOffHand ();
 		}
 		if (Input.GetKey (KeyCode.C)) {
 			offhandhold = true;
@@ -94,8 +111,23 @@ public class PlayerTester : MonoBehaviour
 	}
 
 	void OffHand(){
+		if (looking_up == true) {
+			obj.GetComponent<InstantTransmissionFilm> ().HoldButton (gameObject.transform.position, (Vector2)gameObject.transform.up);
+		} else if (facing == 0){
+			obj.GetComponent<InstantTransmissionFilm> ().HoldButton (gameObject.transform.position, (Vector2)gameObject.transform.right);
+		}else if (facing == 1){
+			obj.GetComponent<InstantTransmissionFilm> ().HoldButton (gameObject.transform.position, -(Vector2)gameObject.transform.right);
+		}
+	}
+
+	void CreateOffHand(){
+		if (obj != null)
+			Destroy (obj);
+
+		obj = Instantiate (light_ball, new Vector2 (gameObject.transform.position.x, gameObject.transform.position.y), Quaternion.identity) as GameObject;
+		obj.GetComponent<InstantTransmissionFilm> ().player = gameObject;
+		offhandhold = true;
 		
-		obj.GetComponent<InstantTransmissionFilm> ().HoldButton (gameObject.transform.position);
 	}
 }
 
