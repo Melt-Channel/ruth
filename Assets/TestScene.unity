@@ -171,9 +171,9 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 84.46712
+  field of view: 59.932274
   orthographic: 0
-  orthographic size: 9.078125
+  orthographic size: 5.765625
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -196,7 +196,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 797093635}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.08125019, y: 0.75000024, z: -10}
+  m_LocalPosition: {x: 0.08125019, y: 0.75, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -214,11 +214,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fitType: 0
-  targetPixelHeight: 120
+  targetPixelHeight: 240
   parallaxLayerCount: 10
-  cameraZoom: 5
+  cameraZoom: 2
   pixelatedPostProcessing: 1
-  heightError: 19
+  heightError: 111
   showGizmos: 1
   subpixelOffset: {x: 0, y: 0}
   pixelZoomMode: 1
@@ -431,7 +431,7 @@ MonoBehaviour:
   facing: 0
   increment: 0
   timer: 0
-  jumpforce: 2.5
+  jumpforce: 3
   Interact: 0
 --- !u!1 &1037251073
 GameObject:
@@ -445,6 +445,8 @@ GameObject:
   - component: {fileID: 1037251074}
   - component: {fileID: 1037251077}
   - component: {fileID: 1037251078}
+  - component: {fileID: 1037251079}
+  - component: {fileID: 1037251080}
   m_Layer: 0
   m_Name: Background
   m_TagString: Platform
@@ -572,6 +574,56 @@ BoxCollider2D:
   m_AutoTiling: 0
   serializedVersion: 2
   m_Size: {x: 0.35320663, y: 0.17984837}
+  m_EdgeRadius: 0
+--- !u!61 &1037251079
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1037251073}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.835351, y: -2.594945}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 5.4, y: 8.1}
+    newSize: {x: 7, y: 3.96}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.5558584, y: 2.9101105}
+  m_EdgeRadius: 0
+--- !u!61 &1037251080
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1037251073}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -3.8633552}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 5.4, y: 8.1}
+    newSize: {x: 7, y: 3.96}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 5.4, y: 0.3732903}
   m_EdgeRadius: 0
 --- !u!1 &1876628111
 GameObject:
