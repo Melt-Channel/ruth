@@ -7,39 +7,25 @@ public class PlayerTester : MonoBehaviour
     public float speed;
     public int speedmultiplier = 1;
 
-    public int facing;
-
-    public int increment;
-
-    public float timer;// = 0.2f;
-
 	public float jumpforce;
 
     //public Animator animator;
 
-    public bool Interact = false;
-
-    private SpriteRenderer sprite;
-
-    Sprite[] taylor;
+    //public bool Interact = false;
 
 	private bool is_grounded;
+	private bool offhandhold;
+
+	public GameObject light_ball;
+	public GameObject obj;
 
     void Start()
     {
+		offhandhold = false;
+    }
 		
-    }
-
-    void Turn(int num)
-    {
-    }
-
-    void dir()
-    {
-    }
     void Update()
     {
-
         if (Input.GetKey(KeyCode.LeftShift))
         {
             speedmultiplier = 2;
@@ -49,17 +35,35 @@ public class PlayerTester : MonoBehaviour
             speedmultiplier = 1;
         }
 
-        timer -= Time.deltaTime;
+        /*timer -= Time.deltaTime;
         if (Input.GetKey(KeyCode.Z))
         {
             Interact = true;
         }
         else
             Interact = false;
-
+*/
 		if (Input.GetKey (KeyCode.X) && is_grounded == true) {
 			is_grounded = false;
 			GetComponent<Rigidbody2D>().AddForce(new Vector2(0, jumpforce), ForceMode2D.Impulse);
+		}
+
+		if (Input.GetKeyDown (KeyCode.C)) {
+
+			obj = Instantiate (light_ball, new Vector2 (gameObject.transform.position.x, gameObject.transform.position.y), Quaternion.identity) as GameObject;
+			obj.GetComponent<InstantTransmissionFilm> ().player = gameObject;
+			offhandhold = true;
+		}
+		if (Input.GetKey (KeyCode.C)) {
+			offhandhold = true;
+		} else if (obj != null) {
+			offhandhold = false;
+			gameObject.transform.position = obj.transform.position;
+			Destroy (obj);
+		}
+
+		if (offhandhold == true) {
+			OffHand ();
 		}
 
     }
@@ -76,14 +80,7 @@ public class PlayerTester : MonoBehaviour
 
 
 		GetComponent<Transform>().Translate(new_velocity);
-        if (Input.GetKeyDown("/"))
-            //	zSort();
-            //Invoke ("animate", timer);
-            if (timer <= 0)
-            {
-                //animate2 ();
-                timer += 0.2f;
-            }
+
     }
 
 	void OnCollisionEnter2D(Collision2D col)
@@ -94,6 +91,11 @@ public class PlayerTester : MonoBehaviour
 			is_grounded = true;
 			print (col.gameObject.tag);
 		}
+	}
+
+	void OffHand(){
+		
+		obj.GetComponent<InstantTransmissionFilm> ().HoldButton (gameObject.transform.position);
 	}
 }
 

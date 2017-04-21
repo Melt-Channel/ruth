@@ -428,11 +428,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0.04
   speedmultiplier: 1
-  facing: 0
-  increment: 0
-  timer: 0
   jumpforce: 3
-  Interact: 0
+  light_ball: {fileID: 1621822106498750, guid: fdd101f2cee4743cf97366e9b47c9c8d, type: 2}
+  obj: {fileID: 0}
 --- !u!1 &1037251073
 GameObject:
   m_ObjectHideFlags: 0
