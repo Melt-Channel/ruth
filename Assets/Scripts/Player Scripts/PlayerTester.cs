@@ -57,7 +57,7 @@ public class PlayerTester : MonoBehaviour
         else
             Interact = false;
 
-		if (Input.GetKey (KeyCode.X) && is_grounded == true) {
+		if ((Input.GetKey (KeyCode.X) || Input.GetKey (KeyCode.Joystick1Button0)) && is_grounded == true) {
 			is_grounded = false;
 			GetComponent<Rigidbody2D>().AddForce(new Vector2(0, jumpforce), ForceMode2D.Impulse);
 		}
